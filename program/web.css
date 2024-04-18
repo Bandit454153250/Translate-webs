@@ -11,3 +11,21 @@ body{
     font-size: 40px;
     font-family: "华文行楷";
 }
+
+.left,
+.right{
+    float: left;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 600px;
+    width: 560px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border :2px solid black;
+}
+
+.right{
+    float: right;
+    margin-left: 0px;
+}
