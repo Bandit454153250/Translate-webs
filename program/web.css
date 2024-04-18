@@ -1,0 +1,13 @@
+body{
+    margin: 0 auto;
+}
+
+.title{
+    background-color: black;
+    height: 60px;
+    color: aliceblue;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
+    font-family: "华文行楷";
+}
