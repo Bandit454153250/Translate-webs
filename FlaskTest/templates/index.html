@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件上传和下载</title>
+</head>
+<body>
+    <h1>上传文件</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="上传">
+    </form>
+
+    <h1>已上传文件</h1>
+    <ul>
+        {% for file in uploaded_files %}
+        <li>
+            {{ file }}
+            <a href="{{ url_for('download', filename=file) }}" download>
+                <button>下载</button>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        {% if message %}
+            alert("{{ message }}");
+        {% endif %}
+    </script>
+</body>
+</html>
