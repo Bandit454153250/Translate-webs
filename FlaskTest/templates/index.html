@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>文件上传和下载</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1>上传文件</h1>
@@ -11,7 +12,7 @@
     </form>
 
     <h1>已上传文件</h1>
-    <ul>
+    <ul id="uploadedFiles">
         {% for file in uploaded_files %}
         <li>
             {{ file }}
@@ -22,10 +23,30 @@
         {% endfor %}
     </ul>
 
+    <h1>文件展示</h1>
+
+    <form id="displayForm">
+        <label for="selectedFile">选择文件：</label>
+        <select name="selectedFile" id="selectedFile">
+            {% for file in uploaded_files %}
+            <option value="{{ file }}">{{ file }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Display Selected File</button>
+    </form>
+
+    <div id="fileContent"></div>
+
     <script>
-        {% if message %}
-            alert("{{ message }}");
-        {% endif %}
+        $(document).ready(function() {
+            $('#displayForm').submit(function(event) {
+                event.preventDefault();
+                var selectedFile = $('#selectedFile').val();
+                $.get('/display_selected_file', { selectedFile: selectedFile }, function(data) {
+                    $('#fileContent').html(data);
+                });
+            });
+        });
     </script>
 </body>
 </html>
