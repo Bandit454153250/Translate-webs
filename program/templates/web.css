@@ -1,0 +1,60 @@
+body{
+    margin: 0 auto;
+}
+
+.title{
+    background-color: black;
+    height: 60px;
+    color: aliceblue;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
+    font-family: "华文行楷";
+}
+
+.language{
+    margin-left: 80px;
+    margin-right: 1000px;
+    margin-top: 20px;
+    border :2px solid black;
+    border-radius: 20px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.left,
+.right{
+    float: left;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 500px;
+    width: 560px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border :2px solid black;
+}
+
+.right{
+    float: right;
+    margin-left: 0px;
+}
+
+.update,
+.downdate{
+    float: left;
+    margin-top: 20px;
+    width: 100px;
+    margin-left: 310px;
+    border :2px solid black;
+    border-radius: 20px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
+.downdate{
+    float: right;
+    margin-right: 310px;
+}
