@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate-web</title>
+    <link rel="stylesheet" href="../static/web.css">
+</head>
+<body>
+    <div class="title">
+        文档翻译网站
+    </div>
+
+    <div class="language">
+        选择语言：
+        <select id="language-1">
+            <option value="0">中文</option>
+        </select>
+        ——>
+        <select id="language-2">
+            <option value="0">中文</option>
+        </select>
+    </div>
+
+    <div class="left">
+        <iframe id="filePreview" src="./hello.txt" frameborder="0" width="560px" height="500px"></iframe>
+    </div>
+
+    <div class="right">
+
+    </div>
+
+    <div class="update">
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <label id="uploadButton" class="upload-button">上传</label>
+            <input id="fileInput" type="file" style="display: none;">
+            <button id="submitButton" type="submit" style="display: none;">上传</button>
+        </form>
+    </div>
+
+    <div class="downdate">
+        保存文件
+    </div>
+</body>
+<script src="../static/web.js"></script>
+</html>
