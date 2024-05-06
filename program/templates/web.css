@@ -1,5 +1,6 @@
 body{
     margin: 0 auto;
+    background-color: blanchedalmond;
 }
 
 .title{
@@ -31,19 +32,15 @@ body{
     margin-right: 80px;
     height: 500px;
     width: 560px;
-    background-color: rgb(255, 255, 255);
     border-radius: 20px;
     border :2px solid black;
+    overflow: hidden;
+    background-color: blanchedalmond;
 }
 
 .right{
     float: right;
     margin-left: 0px;
-}
-
-.filePreview{
-    border-radius: 20px;
-    border :2px solid black;
 }
 
 .update,
