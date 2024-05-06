@@ -41,6 +41,11 @@ body{
     margin-left: 0px;
 }
 
+.filePreview{
+    border-radius: 20px;
+    border :2px solid black;
+}
+
 .update,
 .downdate{
     float: left;
