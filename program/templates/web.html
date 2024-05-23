@@ -24,27 +24,24 @@
         </select>
     </div>
 
-    <div class="left">
-        <iframe id="filePreview1" class="filePreview1" src="../uploaded_files/Test2.docx"  frameborder="0" width="560px" height="500px"></iframe>
-    </div>
-
-    <div class="right">
-        <div>
-        <iframe id="filePreview2" class="filePreview2" src="../uploaded_files/Test2.docx" frameborder="0" width="560px" height="500px"></iframe>
-        </div>
-    </div>
-
-    <div class="update">
-        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-            <label id="uploadButton" class="upload-button">上传</label>
-            <input id="fileInput" type="file" style="display: none;">
-            <button id="submitButton" type="submit" style="display: none;">上传</button>
+    <!-- 文件上传表单 -->
+    <div class="upload">
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <label for="fileInput" class="upload-button">选择文件</label>
+            <input type="file" id="fileInput" name="file" style="display: none;">
+            <button type="submit">上传</button>
         </form>
     </div>
 
-    <div class="downdate">
-        保存文件
+    <!-- 用于显示PPT文本的区域，这里只是一个占位符 -->
+    <div class="left">
+        {% if display_text %}
+            <p>{{ display_text }}</p>
+        {% else %}
+            <p>请上传PPTX文件以查看内容。</p>
+        {% endif %}
     </div>
+
+    <script src="../static/web.js"></script>
 </body>
-<script src="../static/web.js"></script>
 </html>
