@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate-web</title>
+    <link rel="stylesheet" href="./web.css">
+</head>
+<body>
+    <div class="title">
+        文档翻译网站
+    </div>
+
+    <div class="language">
+        选择语言：
+        <select id="language-1">
+            <option value="0">中文</option>
+            <option value="1">英文</option>
+        </select>
+        ——>
+        <select id="language-2">
+            <option value="0">中文</option>
+            <option value="1">英文</option>
+        </select>
+    </div>
+
+    <!-- 文件上传表单 -->
+    <div class="upload">
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <label for="fileInput" class="upload-button">选择文件</label>
+            <input type="file" id="fileInput" name="file" style="display: none;">
+            <button type="submit">上传</button>
+        </form>
+    </div>
+
+    <!-- 用于显示PPT文本的区域，这里只是一个占位符 -->
+    <div class="left">
+        {% if display_text %}
+            <p>{{ display_text }}</p>
+        {% else %}
+            <p>请上传PPTX文件以查看内容。</p>
+        {% endif %}
+    </div>
+
+    <script src="../static/web.js"></script>
+</body>
+</html>
