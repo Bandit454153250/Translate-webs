@@ -1,0 +1,75 @@
+body{
+    margin: 0 auto;
+    background-color: blanchedalmond;
+}
+
+.title{
+    background-color: black;
+    height: 60px;
+    color: aliceblue;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
+    font-family: "华文行楷";
+}
+
+.language{
+    margin-left: 80px;
+    margin-right: 1000px;
+    margin-top: 20px;
+    border :2px solid black;
+    border-radius: 20px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.left,
+.right{
+    float: left;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 500px;
+    width: 560px;
+    border-radius: 20px;
+    border :2px solid black;
+    /*overflow:hidden;*/
+    background-color: blanchedalmond;
+}
+
+.right{
+    float: right;
+    margin-left: 0px;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.custom-file-upload:hover {
+    background-color: #e0e0e0;
+}
+
+#file-upload {
+    display: none;
+}
+
+.container {
+    width: 560px; /* 设置固定宽度 */
+    height: 470px; /* 设置固定高度 */
+    border: 1px solid #ccc; /* 添加边框 */
+    overflow: auto; /* 添加滚动条 */
+}
+
+#output {
+    font-family: Arial, sans-serif; /* 设置字体 */
+    transform-origin: left top; /* 设置缩放的原点为左上角 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}

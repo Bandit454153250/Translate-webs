@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./web_test-excel.css">
+    <title>Document</title>
+
+</head>
+ 
+<body>
+    <div class="title">
+        文档翻译网站
+    </div>
+
+    <div class="language">
+        选择语言：
+        <select id="language-1">
+            <option value="0">中文</option>
+            <option value="1">英文</option>
+        </select>
+        ——>
+        <select id="language-2">
+            <option value="0">中文</option>
+            <option value="1">英文</option>
+        </select>
+    </div>
+
+    <div class="left">
+        <button id="zoomIn">放大</button>
+        <button id="zoomOut">缩小</button>
+        <input type="file" id="fileInput" accept=".xlsx, .xls">
+        <div class="container">
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <div class="right">
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</body>
+<script src="./web_test-excel.js"></script>
+</html>
