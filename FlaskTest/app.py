@@ -1,11 +1,23 @@
-from document import Document
+
 from flask import Flask, render_template, request, send_file, redirect, url_for
 import os
 import glob
+from docx import Document
+from PIL import Image
+from io import BytesIO
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+# 提取 Word 文档内容的函数
+def extract_content(file_path):
+    doc = Document(file_path)
+    content = ""
+    for para in doc.paragraphs:
+        content += para.text + "\n"
+    return content
 
 
 def get_filename(path):
@@ -18,13 +30,13 @@ app.jinja_env.globals.update(get_filename=get_filename)
 @app.route('/')
 def index():
     uploaded_files = os.listdir(app.config['UPLOAD_FOLDER'])
-
+    content = extract_content('example.docx')
     directory_path = './uploads'
     files = glob.glob(os.path.join(directory_path, '*'))
     files.sort(key=os.path.getmtime, reverse=True)
     latest_file_path = files[0] if files else None
 
-    return render_template('index.html', uploaded_files=uploaded_files, latest_file_path=latest_file_path)
+    return render_template('index.html', uploaded_files=uploaded_files, latest_file_path=latest_file_path, content=content)
 
 
 @app.route('/upload', methods=['POST'])
@@ -67,16 +79,6 @@ def display_selected_file():
             with open(file_path, 'r', encoding='utf-8') as file:
                 file_content = file.read()
             return file_content
-        elif file_extension == 'docx':
-            doc = Document()
-            text_content = ""
-            for paragraph in doc.paragraphs:
-                text_content += paragraph.text + "\n"
-            return text_content
-        elif file_extension == 'pdf':
-            return send_file(file_path, as_attachment=False)
-        else:
-            return 'Unsupported file type'
     else:
         return 'File not found'
 
