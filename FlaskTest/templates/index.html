@@ -31,9 +31,7 @@
     <select id="fileSelect">
     </select>
     <div id="fileContent"></div>
-   <!-- <div class="IframeContainer">
-        <iframe id="fileContentIframe" src="/get-file" frameborder="0" width="560px" height="300px"></iframe>
-    </div> -->
+    <div id="content">{{ content }}</div>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 <script src="{{ url_for('static', filename='translate.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
@@ -42,7 +40,7 @@ translate.language.setLocal('chinese_simplified'); //设置本地语种（当前
 translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
 var documents = [];
 documents.push(document.getElementById('fileContent'));
-documents.push(document.getElementById('fileContentIframe'));
+documents.push(document.getElementById('content'));
 translate.setDocuments(documents);
 translate.execute();//进行翻译
 </script>
