@@ -1,58 +1,15 @@
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
 
-    $(document).ready(function() {
-        $.ajax({
-            url: '/get_uploaded_files',
-            type: 'GET',
-            success: function(response) {
-                var files = response.files;
-                var select = $('#fileSelect');
-                files.forEach(function(file) {
-                    select.append($('<option>', {
-                        value: file,
-                        text: file
-                    }));
-                });
-            },
-            error: function(error) {
-                console.log(error);
-                alert('获取文件列表失败！');
-            }
-        });
+    reader.onload = function(event) {
+        var data = new Uint8Array(event.target.result);
+        var workbook = XLSX.read(data, {type: 'array'});
+        var sheetName = workbook.SheetNames[0];
+        var worksheet = workbook.Sheets[sheetName];
+        var text = XLSX.utils.sheet_to_json(worksheet, {header: 1}).map(row => row.join(' ')).join('\n');
+        document.getElementById('xlsx_content').innerText = text;
+    };
 
-        $('#displayButton').click(function() {
-            var selectedFile = $('#fileSelect').val();
-            $.ajax({
-                url: '/display_selected_file',
-                type: 'GET',
-                data: { selectedFile: selectedFile },
-                success: function(response) {
-                    $('#fileContent').text(response);
-                },
-                error: function(error) {
-                    console.log(error);
-                    alert('获取文件内容失败！');
-                }
-            });
-        });
-
-        $('#fileSelect').change(function() {
-            var selectedFile = $(this).val();
-            $.ajax({
-                url: '/display_selected_file',
-                type: 'GET',
-                data: { selectedFile: selectedFile },
-
-                success: function(response) {
-                    $('#fileContent').text(response);
-                },
-                error: function(error) {
-                    console.log(error);
-                    alert('获取文件内容失败！');
-                }
-            });
-        });
-    });
-
-
-
-
+    reader.readAsArrayBuffer(file);
+});

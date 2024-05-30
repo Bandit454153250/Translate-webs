@@ -10,6 +10,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads'  # 设置上传文件夹
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 允许上传最大16MB的文件
 
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST' and 'file' in request.files:
@@ -42,10 +43,12 @@ def upload_file():
 
     return render_template('web.html')
 
+
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'pptx'}
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 if __name__ == '__main__':
     app.run(debug=True)
