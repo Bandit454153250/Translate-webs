@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>文件上传示例</title>
+    <title>文件翻译前端</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Upload files</h1>
@@ -22,14 +25,23 @@
         </ul>
     </div>
 
-    {% if content %}
-    <h2>docx_File Content</h2>
-    <div id="docx_content">{{ content }}</div>
-    {% endif %}
+    <div class="left">
+        <button id="zoomIn">放大</button>
+        <button id="zoomOut">缩小</button>
+        <input type="file" id="fileInput" accept=".xlsx, .xls">
+        <div class="container">
+            <div id="output" style="transform: scale(1);"></div>
+        </div>
+    </div>
 
-    <h2>xlsx_File Contene</h2>
-    <input type="file" id="fileInput" accept=".xlsx, .xls">
-    <div id="xlsx_content"></div>
+    <div class="right">
+        <button id="trans_zoomIn">放大</button>
+        <button id="trans_zoomOut">缩小</button>
+        <div class="container">
+            <div id="trans_output" style="transform: scale(1);"></div>
+        </div>
+    </div>
+
 <script src="{{ url_for('static', filename='translate.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
 <script src="{{ url_for('static', filename='xlsx.js') }}"></script>
@@ -39,7 +51,7 @@ translate.language.setLocal('chinese_simplified');
 translate.service.use('client.edge');
 var documents = [];
 documents.push(document.getElementById('docx_content'));
-documents.push(document.getElementById('xlsx_content'));
+documents.push(document.getElementById('trans_output'));
 translate.setDocuments(documents);
 translate.execute();//进行翻译
 </script>
