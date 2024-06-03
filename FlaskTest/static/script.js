@@ -166,7 +166,7 @@ $(document).ready(function(){
                 var url = window.URL.createObjectURL(blob);
                 var a = document.createElement('a');
                 a.href = url;
-                a.download = 'downloaded_file.txt';
+                a.download = 'translated_file.txt';
                 document.body.appendChild(a);
                 a.click();
                 window.URL.revokeObjectURL(url);
