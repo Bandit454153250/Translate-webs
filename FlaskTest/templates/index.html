@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>文件上传示例</title>
+    <title>文件翻译前端</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <body>
-    <h1>上传文件</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="上传">
     </form>
 
-    <h1>已上传文件列表</h1>
-    <ul>
-        {% for file in uploaded_files %}
-        <li><a href="{{ url_for('download', filename=file) }}">{{ file }}</a></li>
-        {% endfor %}
-    </ul>
+    <div id="translate"></div>
 
-    {% if latest_file_path %}
-    <h1>最新上传的文件</h1>
-    <p>
-    <a href="{{ url_for('download',filename=get_filename(latest_file_path)) }}">
-        <button>下载 {{ get_filename(latest_file_path) }}</button>
-    </a>
-    </p>
-    {% endif %}
+    <div class="left">
+        <button id="zoomIn">放大</button>
+        <button id="zoomOut">缩小</button>
+        <input type="file" id="fileInput" accept=".xlsx,.xls,.docx,.pptx,.pdf">
+        <div class="container">
+            <div id="output" style="transform: scale(1);"></div>
+        </div>
+    </div>
 
-    <h1>显示文件内容</h1>
-    <select id="fileSelect">
-    </select>
-    <div id="fileContent"></div>
-    <div id="content">{{ content }}</div>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="right">
+        <button id="trans_zoomIn">放大</button>
+        <button id="trans_zoomOut">缩小</button>
+        <div class="container">
+            <div id="trans_output" style="transform: scale(1);"></div>
+        </div>
+    </div>
+
 <script src="{{ url_for('static', filename='translate.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename='xlsx.js') }}"></script>
+<script src="{{ url_for('static', filename='jszip.js') }}"></script>
+<script src="{{ url_for('static', filename='pdf.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ url_for('static', filename='pdf.worker.js') }}";</script>
+
+
 <script>
-translate.language.setLocal('chinese_simplified'); //设置本地语种（当前网页的语种）。如果不设置，默认自动识别当前网页显示文字的语种。 可填写如 'english'、'chinese_simplified' 等，具体参见文档下方关于此的说明。
-translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
+translate.selectLanguageTag.refreshRender();
+translate.language.setLocal('chinese_simplified');
+translate.language.setDefaultTo('english');
+translate.service.use('client.edge');
 var documents = [];
-documents.push(document.getElementById('fileContent'));
-documents.push(document.getElementById('content'));
+documents.push(document.getElementById('docx_content'));
+documents.push(document.getElementById('trans_output'));
 translate.setDocuments(documents);
 translate.execute();//进行翻译
 </script>
-
 </body>
 </html>

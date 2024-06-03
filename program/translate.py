@@ -4,8 +4,11 @@ import glob
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploaded_files'
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploaded_files')
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/')
 def index():
@@ -20,6 +23,7 @@ def index():
 
     return render_template('web.html', uploaded_files=uploaded_files, latest_file_path=latest_file_path)
 
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'file' not in request.files:
@@ -31,6 +35,7 @@ def upload():
 
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
