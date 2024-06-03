@@ -19,7 +19,9 @@
         <button id="zoomOut">缩小</button>
         <input type="file" id="fileInput" accept=".xlsx,.xls,.docx,.pptx,.pdf,.txt">
         <div id="container">
-            <div id="output" style="transform: scale(1);"></div>
+            <div class="editabletxt" contenteditable="false">
+                <div id="output" style="transform: scale(1);"></div>
+            </div>
         </div>
     </div>
 
@@ -28,7 +30,9 @@
         <button id="trans_zoomOut">缩小</button>
         <button id="download_btn">下载</button>
         <div id="trans_container">
-            <div id="trans_output" style="transform: scale(1);"></div>
+            <div class="editabletxt" contenteditable="true">
+                 <div id="trans_output" style="transform: scale(1);"></div>
+            </div>
         </div>
     </div>
 
