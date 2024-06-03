@@ -1,3 +1,42 @@
+<<<<<<< HEAD
+body{
+    margin: 0 auto;
+    background-color: blanchedalmond;
+}
+
+.translateSelectLanguage{
+    position: absolute;
+    top:20px;
+    right:100px;
+}
+
+#container, #trans_container {
+    width: 560px; /* 设置固定宽度 */
+    height: 470px; /* 设置固定高度 */
+    border: 1px solid #ccc; /* 添加边框 */
+    overflow: auto; /* 添加滚动条 */
+}
+
+#output, #trans_output {
+    font-family: Arial, sans-serif; /* 设置字体 */
+    transform-origin: left top; /* 设置缩放的原点为左上角 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.left,
+.right{
+    float: left;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 500px;
+    width: 560px;
+    border-radius: 20px;
+    border :2px solid black;
+    /*overflow:hidden;*/
+    background-color: blanchedalmond;
+}
+=======
 body{
     margin: 0 auto;
     background-color: blanchedalmond;
@@ -35,3 +74,4 @@ body{
     /*overflow:hidden;*/
     background-color: blanchedalmond;
 }
+>>>>>>> a30209f74a3f46876f92cafb3d834ff2dd1622ba
