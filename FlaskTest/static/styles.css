@@ -11,7 +11,7 @@ body{
 
 .container {
     width: 560px; /* 设置固定宽度 */
-    height: 470px; /* 设置固定高度 */
+    height: 520px; /* 设置固定高度 */
     border: 1px solid #ccc; /* 添加边框 */
     overflow: auto; /* 添加滚动条 */
 }
@@ -26,9 +26,9 @@ body{
 .right{
     float: left;
     margin-top: 20px;
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 500px;
+    margin-left: 60px;
+    margin-right: 60px;
+    height: 550px;
     width: 560px;
     border-radius: 20px;
     border :2px solid black;
