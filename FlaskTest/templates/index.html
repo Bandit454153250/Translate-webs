@@ -15,8 +15,8 @@
     <div id="translate"></div>
 
     <div class="left">
-        <button id="zoomIn">放大</button>
-        <button id="zoomOut">缩小</button>
+        <img id="zoomIn" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_add.png') }}" alt="Zoom In" style="cursor: pointer;">
+        <img id="zoomOut" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_remove.png') }}" alt="Zoom Out" style="cursor: pointer;">
         <input type="file" id="fileInput" accept=".xlsx,.xls,.docx,.pptx,.pdf,.txt">
         <div id="container">
             <div class="editabletxt" contenteditable="false">
@@ -27,8 +27,8 @@
 
     <div class="right">
         <img id="trans_zoomIn" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_add.png') }}" alt="Zoom In" style="cursor: pointer;">
-        <button id="trans_zoomOut">缩小</button>
-        <button id="download_btn">下载</button>
+        <img id="trans_zoomOut" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_remove.png') }}" alt="Zoom Out" style="cursor: pointer;">
+        <img id="download_btn" class="icon " src="{{ url_for('static', filename='images/download_file.png') }}" alt="Download" style="cursor: pointer;">
         <div id="trans_container">
             <div class="editabletxt" contenteditable="true">
                  <div id="trans_output" style="transform: scale(1);"></div>
