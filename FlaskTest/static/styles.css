@@ -9,7 +9,7 @@ body{
     right:100px;
 }
 
-.container {
+#container, #trans_container {
     width: 560px; /* 设置固定宽度 */
     height: 470px; /* 设置固定高度 */
     border: 1px solid #ccc; /* 添加边框 */

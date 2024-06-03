@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, redirect, url_for
+from flask import Flask, render_template, request, send_file, redirect, url_for, jsonify
 import os
 
 app = Flask(__name__)
@@ -32,10 +32,11 @@ def upload():
     return redirect(url_for('index'))
 
 
-@app.route('/download/<path:filename>', methods=['GET'])
-def download(filename):
-    return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), as_attachment=True)
-
+@app.route('/download_txt', methods=['POST'])
+def download_txt():
+    text = request.form['text']
+    text = text.replace('\n', '\n')
+    return jsonify({'text': text})
 
 if __name__ == '__main__':
     app.run(debug=True)
