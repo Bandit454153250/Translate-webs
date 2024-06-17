@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="上传">
-    </form>
-
     <div id="translate"></div>
 
     <div class="left">
         <img id="zoomIn" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_add.png') }}" alt="Zoom In" style="cursor: pointer;">
         <img id="zoomOut" class="icon" src="{{ url_for('static', filename='images/magnifying_glass_remove.png') }}" alt="Zoom Out" style="cursor: pointer;">
-        <input type="file" id="fileInput" accept=".xlsx,.xls,.docx,.pptx,.pdf,.txt">
+        <label for="fileInput" class="icon">
+        <img id="upLoad" class="icon" src="{{ url_for('static', filename='images/add_file.png') }}" alt="Upload">
+        </label>
+        <input type="file" id="fileInput" accept=".xlsx,.xls,.docx,.pptx,.ppt,.pdf,.txt">
         <div id="container">
             <div class="editabletxt" contenteditable="false">
                 <div id="output" style="transform: scale(1);"></div>

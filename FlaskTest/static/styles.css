@@ -3,18 +3,41 @@ body{
     background-color: blanchedalmond;
 }
 
-.translateSelectLanguage{
+ #fileInput {
+            display: none;
+        }
+
+.translateSelectLanguage {
     position: absolute;
-    top:20px;
-    right:100px;
+    top: 20px;
+    right: 100px;
+    padding: 8px 16px; /* 缩小内边距 */
+    background-color: #f0f0f0; /* 背景颜色 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 4px; /* 圆角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
+    font-family: Arial, sans-serif; /* 字体 */
+    font-size: 12px; /* 缩小字体大小 */
+    color: #333; /* 字体颜色 */
+    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+    transition: background-color 0.3s, box-shadow 0.3s; /* 过渡效果 */
 }
+
+.translateSelectLanguage:hover {
+    background-color: #e0e0e0; /* 悬停时背景颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 悬停时阴影效果 */
+}
+
 
 #container, #trans_container {
     width: 560px; /* 设置固定宽度 */
-    height: 520px; /* 设置固定高度 */
+    height: 515px; /* 设置固定高度 */
     border: 1px solid #ccc; /* 添加边框 */
     overflow: auto; /* 添加滚动条 */
+    background-color: #ffffff; /* 设置白色背景 */
+    border-radius: 0 0 18px 18px; /* 设置只有下边有圆角 */
 }
+
 
 .icon {
     width: 30px;
@@ -31,7 +54,7 @@ body{
 .left,
 .right{
     float: left;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 60px;
     margin-right: 60px;
     height: 550px;
